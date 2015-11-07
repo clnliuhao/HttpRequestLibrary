@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HttpRequestLibrary.iml" filepath="$PROJECT_DIR$/HttpRequestLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/http_request_library/http_request_library.iml" filepath="$PROJECT_DIR$/http_request_library/http_request_library.iml" />
+    </modules>
+  </component>
+</project>

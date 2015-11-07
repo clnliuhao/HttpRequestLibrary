@@ -14,6 +14,7 @@ import java.net.HttpURLConnection;
  * @author 刘浩 2015-11-07 17:24:58
  * @version 1.5.0
  */
+@SuppressWarnings("unused")
 public interface I_Http{
 
     /**

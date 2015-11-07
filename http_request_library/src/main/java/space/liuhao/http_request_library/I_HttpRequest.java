@@ -11,11 +11,11 @@ import java.net.HttpURLConnection;
 /**
  * Http请求二次封装接口定义
  *
- * @author 刘浩 2015-11-07 17:24:58
- * @version 1.5.0
+ * @author 刘浩 2015-11-07 17:44:31
+ * @version 2.0.0
  */
 @SuppressWarnings("unused")
-public interface I_Http{
+public interface I_HttpRequest{
 
     /**
      * Put请求

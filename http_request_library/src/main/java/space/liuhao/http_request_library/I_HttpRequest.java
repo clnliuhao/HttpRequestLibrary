@@ -7,12 +7,16 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.util.List;
+
+import space.liuhao.exception_lib.json.HttpPostKeyAndValueNumberDiscrepancy;
+import space.liuhao.exception_lib.json.ParameterNotIsNullOrEmpty;
 
 /**
  * Http请求二次封装接口定义
  *
- * @author 刘浩 2015-11-07 17:44:31
- * @version 2.0.0
+ * @author 刘浩 2015-11-08 22:23:59
+ * @version 2.1.0
  */
 @SuppressWarnings("unused")
 public interface I_HttpRequest{
@@ -71,6 +75,22 @@ public interface I_HttpRequest{
      * @deprecated 发送一个Get请求
      */
     String getRequest(String requestAddress, String requestParameter) throws Exception;
+
+    /**
+     * Post提交字符串和文件
+     *
+     * @param requestAddress 请求目的地址
+     * @param pStringParams  文本参数列表
+     * @param pStringValue   文本参数值列表
+     * @param pFileParams    文件参数列表
+     * @param pFileValue     文件列表
+     * @param pMediaType     文件媒体类型
+     * @return 请求结果的字符串，结果格式取决于服务器接口
+     * @throws HttpPostKeyAndValueNumberDiscrepancy 当参数和值数量不一致时抛出此异常
+     * @throws ParameterNotIsNullOrEmpty            参数为null或空字符串时抛出此异常
+     * @throws Exception                            其他异常，后去会逐步明确异常类型
+     */
+    String postSubmitStringAndFile(String requestAddress, List<String> pStringParams, List<String> pStringValue, List<String> pFileParams, List<File> pFileValue, String pMediaType) throws HttpPostKeyAndValueNumberDiscrepancy, ParameterNotIsNullOrEmpty, Exception;
 
     /**
      * get方式请求一个位图

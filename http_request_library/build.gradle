@@ -1,5 +1,8 @@
 apply plugin: 'com.android.library'
 
+def versionNumber = 2
+def version_name = "1.1.0"
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -7,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode versionNumber
+        versionName version_name
     }
     lintOptions {
         abortOnError false
@@ -21,16 +24,40 @@ android {
     }
 }
 
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
+ext {
+    bintrayRepo = 'Maven'////bintray上的仓库名，一般为maven
+    bintrayName = 'http_request_library'//bintray上的项目名
+
+    publishedGroupId = 'space.liuhao'//JCenter的GroupId
+    artifact = 'http_request_library'//JCenter的ArtifactId
+
+    siteUrl = 'https://github.com/clnliuhao/HttpRequestLibrary'
+    gitUrl = 'https://github.com/clnliuhao/HttpRequestLibrary'
+
+    libraryVersion = version_name//版本号
+    libraryName = 'http_request_library'//项目名字，没什么用
+    libraryDescription = 'Android平台Http请求封装。定义常见的请求方式的接口。具体实现可以根据不同的网络开源框架单独开辟分支进行编写实现。'//项目描述，没什么用
+
+    //开发者信息
+    developerId = 'liuhao'
+    developerName = 'liuhao'
+    developerEmail = 'liuhaoduoduo@163.com'
+
+    //以上所有信息自行修改，以下不变
+
+    licenseName = 'GNU General Public License, version 3 (GPL-3.0)'
+    licenseUrl = 'http://www.opensource.org/licenses/gpl-3.0.html'
+    allLicenses = ["GPL-3.0"]
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile(name: 'ExceptionLibV1.3.0', ext: 'aar');
+    compile 'space.liuhao:exception_lib:1.3.0@aar'
 }
